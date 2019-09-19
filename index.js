@@ -3,7 +3,7 @@ const app = express();
 const indexRouter= require("./routes/index")
 const newUser= require("./routes/user")
 const bodyParser= require("body-parser")
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use("/", indexRouter)
@@ -19,6 +19,6 @@ app.get("/hello", (request, response, next) => {
 
 
 
-app.listen(3777,() => console.log("Express server is ready on localhost:3777"));
+app.listen(PORT,() => console.log(`Express server is ready on localhost:${PORT}`));
 
 
