@@ -43,10 +43,18 @@ route.delete("/:userId", (req, res, next) => {
 });
 
 route.put("/", (req, res, next) => {
-  user.splice(req.params.userId, 1 - 1);
+  const idUser = user.findIndex(data => data.id == req.params.userId);
+  console.log(idUser);
+  if (iduser === -1) {
   res.send({
-    data: user
+    data: `data error`
   });
+ } else {
+   user.splice(idUser, 1);
+   res.send({
+     data: user
+   });
+  }
 });
 
 module.exports = route;
