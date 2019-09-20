@@ -44,13 +44,12 @@ route.delete("/:userId", (req, res, next) => {
 
 route.put("/:userId", (req, res, next) => {
   const idUser = user.findIndex(data => data.id == req.params.userId);
-  console.log(idUser);
-  if (iduser === -1) {
+  if (idUser === -1) {
   res.send({
     data: `data error`
   });
  } else {
-   user.splice(idUser, 1, {nama: req.body.nama, age: req.body.age, id:req.body.id});
+   user.splice(idUser, 1, {nama: req.body.nama, age: req.body.age, id : Number(req.params.userId)});
    res.send({
      data: user
    });
