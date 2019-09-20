@@ -42,7 +42,7 @@ route.delete("/:userId", (req, res, next) => {
   }
 });
 
-route.put("/", (req, res, next) => {
+route.put("/:userId", (req, res, next) => {
   const idUser = user.findIndex(data => data.id == req.params.userId);
   console.log(idUser);
   if (iduser === -1) {
@@ -50,7 +50,7 @@ route.put("/", (req, res, next) => {
     data: `data error`
   });
  } else {
-   user.splice(idUser, 1);
+   user.splice(idUser, 1, {nama: req.body.nama, age: req.body.age, id:req.body.id});
    res.send({
      data: user
    });
